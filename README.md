@@ -2,8 +2,6 @@
 
 A comprehensive, full-featured e-commerce website built with React, TypeScript, and modern web technologies. ShopNext demonstrates professional-level development practices with a complete shopping experience including product browsing, cart management, checkout process, and order confirmation.
 
-![ShopNext Preview](https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800)
-
 ## 🚀 Features
 
 ### Core E-commerce Functionality
