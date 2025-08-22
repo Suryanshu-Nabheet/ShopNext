@@ -79,7 +79,7 @@ Before running this project, make sure you have the following installed on your 
 ### Step 1: Clone the Repository
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/shopnext.git
+git clone https://github.com/Suryanshu-Nabheet/ShopNext.git
 
 # Navigate to the project directory
 cd shopnext
