@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import SafeImage from './SafeImage';
 
 interface CartProps {
   isOpen: boolean;
@@ -88,7 +89,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
                       >
-                        <img
+                        <SafeImage
                           src={item.image}
                           alt={item.name}
                           className="h-16 w-16 object-cover rounded-md"

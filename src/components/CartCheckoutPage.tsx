@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CreditCard, MapPin, User, Phone, Mail } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import SafeImage from './SafeImage';
 
 interface CartItem {
   id: number;
@@ -337,7 +338,7 @@ const CartCheckoutPage: React.FC<CartCheckoutPageProps> = ({ items, total, onBac
               <div className="space-y-4 mb-6">
                 {items.map((item) => (
                   <div key={item.id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                    <img
+                    <SafeImage
                       src={item.image}
                       alt={item.name}
                       className="w-12 h-12 object-cover rounded-lg"

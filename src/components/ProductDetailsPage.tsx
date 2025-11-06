@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, ShoppingCart, Plus, Minus, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import SafeImage from './SafeImage';
 
 interface Product {
   id: number;
@@ -358,7 +359,7 @@ const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({ product, onBack
           >
             {/* Main Image */}
             <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
-              <img
+              <SafeImage
                 src={productImages[selectedImage]}
                 alt={product.name}
                 className="w-full h-96 object-cover rounded-xl"
@@ -391,7 +392,7 @@ const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({ product, onBack
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <img
+                  <SafeImage
                     src={image}
                     alt={`${product.name} ${index + 1}`}
                     className="w-full h-20 object-cover rounded"

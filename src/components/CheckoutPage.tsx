@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CreditCard, MapPin, User, Phone, Mail, Download } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface Product {
   id: number;
@@ -335,7 +336,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ product, quantity, onBack, 
               
               {/* Product Details */}
               <div className="flex items-center space-x-4 mb-6 p-4 bg-gray-50 rounded-lg">
-                <img
+                <SafeImage
                   src={product.image}
                   alt={product.name}
                   className="w-16 h-16 object-cover rounded-lg"

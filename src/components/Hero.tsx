@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Star, Truck, Shield, Headphones } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface HeroProps {
   onViewCollectionsClick: () => void;
@@ -143,7 +144,7 @@ const Hero: React.FC<HeroProps> = ({ onViewCollectionsClick }) => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <SafeImage
                   src="https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=600"
                   alt="Shopping Experience"
                   className="w-full h-96 object-cover rounded-2xl"

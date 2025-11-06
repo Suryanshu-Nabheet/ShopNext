@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, User, Target, Heart, Award, Users, Globe, Mail, Phone, MapPin } from 'lucide-react';
 import Header from './Header';
+import SafeImage from './SafeImage';
 
 interface AboutPageProps {
   onBack: () => void;
@@ -161,7 +162,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <SafeImage
                   src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   alt="Development process"
                   className="w-full h-80 object-cover rounded-xl"
@@ -183,7 +184,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="text-center">
                 <div className="relative inline-block">
-                  <img
+                  <SafeImage
                     src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300"
                     alt="Developer"
                     className="w-32 h-32 rounded-full object-cover mx-auto border-4 border-blue-100"
@@ -251,29 +252,18 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
                 } as React.CSSProperties}
               >
                 <div className="mb-4 transition-all duration-300 group-hover:scale-110">
-                  <img
+                  <SafeImage
                     src={tech.logo}
                     alt={`${tech.name} logo`}
                     className="w-16 h-16 mx-auto transition-all duration-300 filter grayscale group-hover:grayscale-0"
                     style={{
                       filter: 'grayscale(100%)',
-                    }}
+                    } as React.CSSProperties}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.filter = 'grayscale(0%)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.filter = 'grayscale(100%)';
-                    }}
-                    onError={(e) => {
-                      // Generic fallback for any failed logo
-                      e.currentTarget.style.display = 'none';
-                      const parent = e.currentTarget.parentElement;
-                      if (parent && !parent.querySelector('.fallback-icon')) {
-                        const fallback = document.createElement('div');
-                        fallback.className = 'fallback-icon w-16 h-16 mx-auto bg-gray-200 rounded-lg flex items-center justify-center text-2xl font-bold text-gray-600';
-                        fallback.textContent = tech.name.charAt(0);
-                        parent.appendChild(fallback);
-                      }
                     }}
                   />
                 </div>

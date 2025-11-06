@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle, Download, Mail, Package, ArrowLeft } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import SafeImage from './SafeImage';
 
 interface OrderData {
   orderId: string;
@@ -185,7 +186,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ orderData, onBack
                       <tr key={item.id}>
                         <td className="border border-gray-300 px-4 py-3">
                           <div className="flex items-center space-x-3">
-                            <img
+                            <SafeImage
                               src={item.image}
                               alt={item.name}
                               className="w-12 h-12 object-cover rounded"
@@ -207,7 +208,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({ orderData, onBack
                     <tr>
                       <td className="border border-gray-300 px-4 py-3">
                         <div className="flex items-center space-x-3">
-                          <img
+                          <SafeImage
                             src={orderData.product.image}
                             alt={orderData.product.name}
                             className="w-12 h-12 object-cover rounded"

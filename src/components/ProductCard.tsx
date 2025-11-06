@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star, ShoppingCart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import SafeImage from './SafeImage';
 
 interface Product {
   id: number;
@@ -37,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
       onClick={onClick}
     >
       <div className="relative">
-        <img
+        <SafeImage
           src={product.image}
           alt={product.name}
           className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"

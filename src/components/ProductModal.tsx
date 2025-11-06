@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Star, ShoppingCart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import SafeImage from './SafeImage';
 
 interface Product {
   id: number;
@@ -48,7 +49,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Product Image */}
             <div className="relative">
-              <img
+              <SafeImage
                 src={product.image}
                 alt={product.name}
                 className="w-full h-96 md:h-full object-cover"
