@@ -350,6 +350,11 @@ npx tsc --showConfig
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 📚 Additional Documentation
+
+- [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to this project
+- [Code of Conduct](CODE_OF_CONDUCT.md) - Community guidelines and standards
+
 ## 👨‍💻 Developer
 
 **Suryanshu Nabheet**
