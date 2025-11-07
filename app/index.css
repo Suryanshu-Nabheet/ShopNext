@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Only essential global styles that can't be done with Tailwind */
+@layer base {
+  * {
+    @apply subpixel-antialiased;
+  }
+}

@@ -18,7 +18,21 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["components/*"],
+      "components/ui/*": ["components/ui/*"],
+      "pages/*": ["pages/*"],
+      "data/*": ["data/*"],
+      "lib/*": ["lib/*"],
+      "context/*": ["context/*"],
+      "config/*": ["config/*"],
+      "types/*": ["types/*"],
+      "app/*": ["app/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["app", "components", "pages", "data", "lib", "context", "config", "types"]
 }
