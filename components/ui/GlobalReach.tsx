@@ -1,13 +1,13 @@
 /**
  * Global Reach Section Component
- * 
+ *
  * Displays a world map with animated connection lines showing global shipping
  * and service locations. Used to showcase worldwide reach and connectivity.
  */
 
 "use client";
 
-import WorldMap from "components/ui/world-map";
+import WorldMap from "components/ui/WorldMap";
 import { motion } from "framer-motion";
 
 interface GlobalReachProps {
@@ -88,4 +88,3 @@ export default function GlobalReach({
     </div>
   );
 }
-

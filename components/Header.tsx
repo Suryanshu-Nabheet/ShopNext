@@ -1,16 +1,16 @@
 /**
  * Header Component (Resizable Navbar)
- * 
+ *
  * Modern resizable navbar that adapts on scroll.
  * Integrates with ShopNext's navigation and cart functionality.
  */
 
-import React, { useState, useEffect } from 'react';
-import { ShoppingCart } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { cn } from 'lib/utils';
-import { useCart } from 'context/CartContext';
-import { Page } from 'types';
+import React, { useState, useEffect } from "react";
+import { ShoppingCart } from "lucide-react";
+import { motion } from "framer-motion";
+import { cn } from "lib/utils";
+import { useCart } from "context/CartContext";
+import { Page } from "types";
 import {
   Navbar,
   NavBody,
@@ -19,7 +19,7 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from 'components/ui/resizable-navbar';
+} from "components/ui/ResizableNavbar";
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -28,7 +28,11 @@ interface HeaderProps {
   currentPage: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ onCartClick, onNavigate, currentPage }) => {
+const Header: React.FC<HeaderProps> = ({
+  onCartClick,
+  onNavigate,
+  currentPage,
+}) => {
   // All hooks must be called at the top level, before any conditional returns
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
@@ -38,45 +42,47 @@ const Header: React.FC<HeaderProps> = ({ onCartClick, onNavigate, currentPage })
     const handleScroll = () => {
       setIsNavbarVisible(window.scrollY > 100);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (item: string) => {
-    if (item === 'Home') {
-      onNavigate('home');
-    } else if (item === 'Products') {
-      onNavigate('products');
-    } else if (item === 'About') {
-      onNavigate('about');
+    if (item === "Home") {
+      onNavigate("home");
+    } else if (item === "Products") {
+      onNavigate("products");
+    } else if (item === "About") {
+      onNavigate("about");
     }
     setIsMobileMenuOpen(false);
   };
 
   const navItems = [
     {
-      name: 'Home',
-      link: '#',
+      name: "Home",
+      link: "#",
     },
     {
-      name: 'Products',
-      link: '#',
+      name: "Products",
+      link: "#",
     },
     {
-      name: 'About',
-      link: '#',
+      name: "About",
+      link: "#",
     },
   ];
 
-  const cartItemCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
+  const cartItemCount = state.items.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
 
-  // Don't show navbar on products and product-details pages
-  if (currentPage === 'products' || currentPage === 'product-details') {
-    return null;
-  }
-
-  // Simplified navbar for checkout/order pages
-  if (currentPage !== 'home' && currentPage !== 'about') {
+  // simplified navbar for checkout/order pages
+  if (
+    currentPage === "checkout" ||
+    currentPage === "cart-checkout" ||
+    currentPage === "order-confirmation"
+  ) {
     return (
       <div className="fixed top-0 left-0 right-0 z-50 p-4">
         <div className="max-w-7xl mx-auto">
@@ -84,8 +90,8 @@ const Header: React.FC<HeaderProps> = ({ onCartClick, onNavigate, currentPage })
             <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-white/30 to-blue-50/50 -z-10"></div>
             <div className="relative px-6 py-3">
               <div className="flex items-center justify-between">
-                <NavbarLogo onClick={() => onNavigate('home')} />
-                <button 
+                <NavbarLogo onClick={() => onNavigate("home")} />
+                <button
                   onClick={onCartClick}
                   className="relative p-2.5 text-gray-700 hover:text-blue-600 transition-all duration-300 hover:bg-white/50 rounded-xl backdrop-blur-sm border border-transparent hover:border-white/30 group"
                 >
@@ -109,8 +115,8 @@ const Header: React.FC<HeaderProps> = ({ onCartClick, onNavigate, currentPage })
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
-          <NavbarLogo onClick={() => onNavigate('home')} visible={isNavbarVisible} />
-          <CustomNavItems 
+          <NavbarLogo onClick={() => onNavigate("home")} />
+          <CustomNavItems
             items={navItems}
             onItemClick={handleNavClick}
             visible={isNavbarVisible}
@@ -133,7 +139,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick, onNavigate, currentPage })
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
-            <NavbarLogo onClick={() => onNavigate('home')} />
+            <NavbarLogo onClick={() => onNavigate("home")} />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -178,11 +184,11 @@ const Header: React.FC<HeaderProps> = ({ onCartClick, onNavigate, currentPage })
 };
 
 // Custom NavItems component that handles navigation properly
-const CustomNavItems = ({ 
-  items, 
+const CustomNavItems = ({
+  items,
   onItemClick,
-  visible = false
-}: { 
+  visible = false,
+}: {
   items: { name: string; link: string }[];
   onItemClick: (item: string) => void;
   visible?: boolean;
@@ -203,8 +209,8 @@ const CustomNavItems = ({
           onClick={() => onItemClick(item.name)}
           className={cn(
             "relative px-4 py-2 transition-colors duration-200",
-            visible 
-              ? "text-gray-700 hover:text-blue-600" 
+            visible
+              ? "text-gray-700 hover:text-blue-600"
               : "text-gray-500/80 hover:text-gray-600"
           )}
           key={`link-${idx}`}
@@ -214,8 +220,8 @@ const CustomNavItems = ({
               layoutId="hovered"
               className={cn(
                 "absolute inset-0 h-full w-full rounded-full backdrop-blur-sm shadow-sm",
-                visible 
-                  ? "bg-white/60 border border-white/40" 
+                visible
+                  ? "bg-white/60 border border-white/40"
                   : "bg-white/30 border border-white/20"
               )}
             />

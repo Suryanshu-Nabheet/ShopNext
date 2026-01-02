@@ -1,6 +1,6 @@
 /**
  * Global TypeScript type definitions for ShopNext eCommerce application
- * 
+ *
  * This file contains all shared interfaces, types, and enums used across the application.
  * Centralizing types here ensures consistency and makes refactoring easier.
  */
@@ -39,11 +39,11 @@ export interface CartState {
   total: number;
 }
 
-export type CartAction = 
-  | { type: 'ADD_ITEM'; payload: Omit<CartItem, 'quantity'> }
-  | { type: 'REMOVE_ITEM'; payload: number }
-  | { type: 'UPDATE_QUANTITY'; payload: { id: number; quantity: number } }
-  | { type: 'CLEAR_CART' };
+export type CartAction =
+  | { type: "ADD_ITEM"; payload: Omit<CartItem, "quantity"> }
+  | { type: "REMOVE_ITEM"; payload: number }
+  | { type: "UPDATE_QUANTITY"; payload: { id: number; quantity: number } }
+  | { type: "CLEAR_CART" };
 
 // ============================================================================
 // Order Types
@@ -94,5 +94,11 @@ export interface Category {
 // Page Navigation Types
 // ============================================================================
 
-export type Page = 'home' | 'products' | 'about' | 'product-details' | 'checkout' | 'order-confirmation' | 'cart-checkout';
-
+export type Page =
+  | "home"
+  | "products"
+  | "about"
+  | "product-details"
+  | "checkout"
+  | "order-confirmation"
+  | "cart-checkout";
